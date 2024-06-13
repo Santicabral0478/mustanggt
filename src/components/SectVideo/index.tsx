@@ -1,7 +1,8 @@
 export const SectVideo = ()=>{
     return(
-        <section className="products section" id="video">
-        <video style={{width: "100%"}} autoPlay loop muted className="videoTrailler" src="/videoplayback.webm"></video>
+        <section className="videoSection products" id="video">
+        <video style={{width: "100%"}} autoPlay loop muted className="videoTrailler" src="/videoplayback.webm">
+        </video>
         <div className="infLink">
             <a href="https://www.ford.com.ar/autos/mustang/models/mustang-mach1/" className="infAndLogo">
                 <div className="VidLogoCont">

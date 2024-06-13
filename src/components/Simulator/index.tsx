@@ -1,195 +1,52 @@
 "use client"
 
-import React, { useEffect } from 'react';
+import Link from 'next/link';
+import React, { useEffect, useRef, useState } from 'react';
 
 const Simulator = () => {
-  useEffect(() => {
-    const contenedor = document.querySelector('.contenedor');
-    const interior = document.querySelector('.interior');
-    const readyButton = document.querySelector('.ready-prog');
-    const stopButton = document.querySelector('.stop-prog');
-    const screenLoad = document.querySelector('.screen-load');
-    const kmmetter = document.querySelector('.kmmetter');
+  const videoRef: any = useRef(null);
+  const [displayNone, setDisplayNone] = useState("")
 
-    const puntos = [
-        { x: 58, y: 13 },
-        { x: 91, y: 10 },
-        { x: 100, y: 43 },
-        { x: 95, y: 75 },
-        { x: 74, y: 80 },
-        { x: 44, y: 76 },
-        { x: 22, y: 93 },
-        { x: 6, y: 62 },
-        { x: 0, y: 32 },
-        { x: 39, y: 42 }
-    ];
-
-    let currentIndex = 0;
-    let animationInterval = null;
-    let degensInterval = null;
-
-    const startAnimation = () => {
-      if (!animationInterval) {
-          animationInterval = setInterval(moveInterior, 100000 / puntos.length);
-          
-          screenLoad.classList.remove('nonpre');
-
-        setTimeout(() => {
-          screenLoad.classList.add('nonpre');
-        }, 10000);
-
-        setTimeout(() => {
-            kmmetter.classList.add('degens');
-            setTimeout(() => {
-              kmmetter.classList.remove('degens');
-            }, 800); 
-      
-            setTimeout(() => {
-              kmmetter.classList.add('degens2');
-            }, 10000); 
-      
-            setTimeout(() => {
-              kmmetter.classList.add('degens3');
-            }, 10500); 
-      
-            setTimeout(() => {
-              kmmetter.classList.add('degens4');
-            }, 10000); 
-      
-            setTimeout(() => {
-              kmmetter.classList.remove('degens4');
-            }, 17000); 
-      
-            setTimeout(() => {
-              kmmetter.classList.add('degens4');
-            }, 22000); 
-      
-            setTimeout(() => {
-              kmmetter.classList.remove('degens4');
-            }, 27000); 
-      
-            setTimeout(() => {
-              kmmetter.classList.add('degens4');
-            }, 32000); 
-      
-            setTimeout(() => {
-              kmmetter.classList.remove('degens4');
-            }, 37000);
-      
-            setTimeout(() => {
-              kmmetter.classList.add('degens4');
-            }, 42000); 
-      
-            setTimeout(() => {
-              kmmetter.classList.remove('degens4');
-            }, 47000);
-      
-            setTimeout(() => {
-              kmmetter.classList.add('degens4');
-            }, 52000); 
-      
-            setTimeout(() => {
-              kmmetter.classList.remove('degens4');
-            }, 57000); 
-      
-            setTimeout(() => {
-              kmmetter.classList.add('degens4');
-            }, 62000); 
-      
-            setTimeout(() => {
-              kmmetter.classList.remove('degens4');
-            }, 67000); 
-      
-            setTimeout(() => {
-              kmmetter.classList.add('degens4');
-            }, 72000); 
-      
-            setTimeout(() => {
-              kmmetter.classList.remove('degens4');
-            }, 77000); 
-      
-            setTimeout(() => {
-              kmmetter.classList.add('degens4');
-            }, 82000); 
-      
-            setTimeout(() => {
-              kmmetter.classList.remove('degens4');
-            }, 87000); 
-          }, 11000);
-
-          setTimeout(()=>{
-            clearInterval(animationInterval);
-            clearInterval(degensInterval);
-            animationInterval = null;
-            degensInterval = null;
-            kmmetter.classList.remove('degens3');
-            kmmetter.classList.remove('degens2');
-          }, 117000 )
-      }
-    };
-
-    const stopAnimation = () => {
-      clearInterval(animationInterval);
-      clearInterval(degensInterval);
-      animationInterval = null;
-      degensInterval = null;
-    };
-
-    const moveInterior = () => {
-      const currentPoint = puntos[currentIndex];
-      interior.style.left = currentPoint.x + '%';
-      interior.style.top = currentPoint.y + '%';
-      currentIndex = (currentIndex + 1) % puntos.length;
-    };
-
-    if (readyButton && stopButton) {
-      readyButton.addEventListener('click', startAnimation);
-      stopButton.addEventListener('click', stopAnimation);
+  const handlePlay = () => {
+    if(displayNone == "") setDisplayNone("displayNone")
+    if (videoRef.current) {
+      videoRef.current.play();
     }
+  };
 
-    return () => {
-      if (readyButton && stopButton) {
-        readyButton.removeEventListener('click', startAnimation);
-        stopButton.removeEventListener('click', stopAnimation);
-      }
-    };
-  }, []);
 
   return (
     <section className="discount section" id="simu">
       <div className="discount__container container grid">
         <div className="discount__animate">
           <div className="nogap">
-            <h2 className="discount__title">Mach 1: <br/> ¡Acelera al Límite!</h2>
-            <p className="discount__description">desata su velocidad en este  simulador</p>
-            <div className="gen-numb-punt-cont">
-              <div className="km-cont">
-                <div className="imgcont">
-                  <img src="assets/imgauto/dash.png" alt=""/>
-                  <div className="puntimg-cont">
-                    <img className="kmmetter" src="/punte.png" alt=""/>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <h2 className="discount__title">Ford Performance</h2>
+            <p className="discount__description">
+              <b>Es el enfrentamiento definitivo en circuito:</b>
+              <br/><br/>
+              Ocho modelos de la gama global Ford Performance <br /> 
+              juntos en un circuito por primera vez, llevados <br /> 
+              al límite por los pilotos del equipo Ford Chip <br /> 
+              Ganassi Racing.
+            </p>
+              <Link href={"https://www.youtube.com/watch?v=kMf-qtvYRJc"} className='viewMoreYt'>
+                Ver mas
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"  viewBox="0 0 24 24" className='ytSvg'><path d="M12.04 3.5c.59 0 7.54.02 9.34.5a3.02 3.02 0 0 1 2.12 2.15C24 8.05 24 12 24 12v.04c0 .43-.03 4.03-.5 5.8A3.02 3.02 0 0 1 21.38 20c-1.76.48-8.45.5-9.3.51h-.17c-.85 0-7.54-.03-9.29-.5A3.02 3.02 0 0 1 .5 17.84c-.42-1.61-.49-4.7-.5-5.6v-.5c.01-.9.08-3.99.5-5.6a3.02 3.02 0 0 1 2.12-2.14c1.8-.49 8.75-.51 9.34-.51zM9.54 8.4v7.18L15.82 12 9.54 8.41z"/></svg>
+              </Link>
           </div>
           <div className="buttons-cont">
-            <a id="startButton" className="ready-prog btn-run">Inciar</a>
-            <a id="stopButton" className="stop-prog btn-run"><i className="fa-solid fa-stop"></i></a>
           </div>
         </div>
         <div className="load-map-cont">
           <div className="map-general-cont">
-            <div className="screen-load nonpre">
-              <div className="items">
-                <svg viewBox="-2000 -1000 4000 2000">
-                  <path id="inf" d="M354-354A500 500 0 1 1 354 354L-354-354A500 500 0 1 0-354 354z"></path>
-                </svg>
-                <p className="load-text">Cargando...</p>
-              </div>  
-            </div>
-            <div className="contenedor">
-              <div className="interior " id="car"></div>
+            <video ref={videoRef} controls>
+              <source src="/ford.mp4" type="video/mp4" />
+              Video no soportado :/
+            </video>
+            <div className={`minCont ${displayNone}`}>
+              <button onClick={handlePlay} className="buttonPlay">
+                <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="26px"><path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z" fill="currentColor"></path></svg>
+              </button>
             </div>
           </div>
         </div>

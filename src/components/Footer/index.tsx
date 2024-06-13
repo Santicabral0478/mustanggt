@@ -1,73 +1,56 @@
+import Link from "next/link";
+import SettingsExtraInf from "../SettingsExtraInf";
+
 export const Footer = ()=>{
     return(
         <footer className="footer section">
         <div className="footer__container container grid">
-            <a href="#" className="footer__logo">
-                <img src="/logo.png" alt=""/>
-            </a>
 
             <div className="footer__content">
-                <h3 className="footer__title">Sitio Oficial</h3>
+                <h3 className="footer__title">Ford</h3>
 
                 <ul className="footer__links">
                     <li>
-                        <a href="#" className="footer__link">Acerca de</a>
+                        <Link href={"https://www.ford.com/"} className="footer__link">Sitio oficial</Link>
                     </li>
                     <li>
-                        <a href="#" className="footer__link">Modelos</a>
+                        <Link href={"https://www.ford.com.ar/todos/"} className="footer__link">Modelos</Link>
                     </li>
                     <li>
-                        <a href="#" className="footer__link">Ford Argentina</a>
+                        <Link href={"https://www.ford.com.ar/"} className="footer__link">Ford Argentina</Link>
                     </li>
                     <li>
-                        <a href="#" className="footer__link">mustang-mach1</a>
+                        <Link href={"https://www.ford.com.ar/autos/mustang/models/mustang-mach1/"} className="footer__link">mustang-mach1</Link>
                     </li>
                 </ul>
             </div>
 
             <div className="footer__content">
-                <h3 className="footer__title">Green Studios</h3>
+                <h3 className="footer__title">Santiago Cabral</h3>
 
                 <ul className="footer__links">
                     <li>
-                        <a href="#" className="footer__link">Nosotros</a>
+                        <Link href={"https://santiagocabral.vercel.app/"} className="footer__link">Portfolio</Link>
                     </li>
                     <li>
-                        <a href="#" className="footer__link">Servicios</a>
+                        <Link href={"https://santiagocabral.vercel.app/proyectos"} className="footer__link">Mas Proyectos</Link>
                     </li>
                     <li>
-                        <a href="#" className="footer__link">Blog</a>
+                        <Link href={"https://www.linkedin.com/in/santiago-cabral-6617bb2b3/"} className="footer__link">LinkedIn</Link>
                     </li>
                     <li>
-                        <a href="#" className="footer__link">Contactanos</a>
+                        <Link href={"https://www.instagram.com/santiaco.c.web/"} className="footer__link">Instagram</Link>
                     </li>
                 </ul>
             </div>
 
             <div className="footer__content">
-                <form action="" className="footer__form">
-                    <input type="email" placeholder="Email" className="footer__input"/>
-                    <button className="button button--flex">
-                        <i className="ri-send-plane-line button__icon"></i> Enviar mensaje
-                    </button>
-                </form>
-
-                <div className="footer__social">
-                    <a href="https://www.facebook.com/" target="_blank" className="footer__social-link">
-                        <i className="ri-facebook-fill"></i>
-                    </a>
-                    <a href="https://www.instagram.com/" target="_blank" className="footer__social-link">
-                        <i className="ri-instagram-line"></i>
-                    </a>
-                    <a href="https://twitter.com/" target="_blank" className="footer__social-link">
-                        <i className="ri-twitter-line"></i>
-                    </a>
-                </div>
+                <SettingsExtraInf/>
             </div>
         </div>
 
         <p className="footer__copy">
-             Green Studios &#169; Todos los derechos reservados.
+            Ford Mach 1 &#169; creado por <Link href={"https://santiagocabral.vercel.app/"}> <b style={{color: "#ededed"}} >Santiago Cabral</b> </Link>.
         </p>
     </footer>
     )

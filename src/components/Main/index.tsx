@@ -5,7 +5,7 @@ return(
         <main className="main">
             <section className="home section" id="home">
                 <div className="home__container container grid">
-                    <div>
+                    <div className="mustangCarCont" >
                         <img src="/principal.jpg" alt="" className="home__img"/>
                     </div>
                     
@@ -23,7 +23,7 @@ return(
                             </p>
                             <div className="wrapper1">
                                 <div className="link_wrapper">
-                                <a className="buttonEro" href="#">Ver mas</a>
+                                <a className="buttonEro" href="#specs">Ver mas</a>
                                 
                                 </div>
                                 
@@ -45,7 +45,7 @@ return(
             <section className="specs section grid" id="specs">
             <h2 className="section__title section__title-gradient">Principal</h2>
     
-            <div className="specs__container container grid">
+            <div className="specs__container">
                 <div className="specs__content grid">
                     <div className="specs__data">
                         <i className="fa-solid fa-gears specs__icon"></i>
@@ -73,7 +73,8 @@ return(
                 </div>
                 
                 <div className="backfront1">
-                    <img src="/front.png" alt="" className="specs__img"/>
+                    {/* <img src="/front.png" alt="" className="specs__img"/> */}
+                    <div className=""></div>
                 </div>
             </div>
             </section>
@@ -81,16 +82,15 @@ return(
             <section className="case section grid">
             <h2 className="section__title section__title-gradient">Diseño</h2>
     
-            <div className="case__container container grid">
+            <div className="specs2__container">
                 <div className="blackfont2">
-                    <img src="/back.png" alt="" className="case__img"/>
+                    <div className=""></div>
                 </div>
     
                 <div className="case__data">
                     <p className="case__description">
                         El Ford Mustang Mach 1 posee un diseño agresivo y elegante que combina elementos retro y modernos, rindiendo homenaje a la herencia del Mustang mientras proyecta una imagen futurista.
                     </p>
-                    
                 </div>
             </div>
             </section>
